@@ -1,0 +1,21 @@
+---
+import LandingLayout from "../layouts/LandingLayout.astro";
+import Hero from "../components/Hero.astro";
+
+const pageTitle = "Home - Formlander";
+const pageDescription =
+	"Fast forms for your landing pages. No coding required. Embed forms on your website in minutes";
+const pageUrl = "https://www.formlander.com";
+const pageImage = "https:/www.formlander.com/images/formlander.jpg";
+---
+
+<script async src="https://tally.so/widgets/embed.js"></script>
+
+<LandingLayout
+	title={pageTitle}
+	description={pageDescription}
+	url={pageUrl}
+	image={pageImage}
+>
+	<Hero />
+</LandingLayout>

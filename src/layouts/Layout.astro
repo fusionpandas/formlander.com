@@ -1,0 +1,52 @@
+---
+import Footer from "../components/Footer.astro";
+
+interface Props {
+	title: string;
+	description: string;
+	url: string;
+	image: string;
+}
+
+const { title, description, url, image } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+
+		<!-- Open Graph Meta Tags -->
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={url} />
+		<meta property="og:image" content={image} />
+
+		<!-- Twitter Card Meta Tags -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:url" content={url} />
+		<!-- <meta name="twitter:image" content={image} /> -->
+	</head>
+	<body class="bg-white text-gray-900 flex flex-col min-h-screen">
+		<header
+			class="w-full py-4 px-6 fixed top-0 left-0 flex items-center bg-white shadow-md text-gray-900 z-10"
+		>
+			<img src="/favicon.png" alt="Icon" class="h-8 w-8 mr-2" />
+			<a href="/"
+				><span class="text-xl font-bold text-gray-900">Pomotto</span></a
+			>
+		</header>
+		<main class="flex-grow flex flex-col">
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>
